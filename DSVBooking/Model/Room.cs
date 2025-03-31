@@ -11,23 +11,31 @@ namespace DSVBooking.Model
         public bool Whiteboard { get; set; }
         public bool SmartBoard { get; set; }
 
-        // Default Contructor for a room without equipment
-        public Room(string name, int cap)
+
+
+        public Room()
         {
-            Name = name;
+            Name = "test";
             ID++;
-            Capacity = cap;
+            Capacity = 0;
             Projector = false;
             Whiteboard = false;
             SmartBoard = false;
         }
 
-        // In depth Constructor with all proterties
-        public Room (string name, int cap, bool projector, bool whiteboard, bool smartboard)
+
+        // Default Contructor for a room without equipment
+        public Room(string name, int cap):this()
         {
             Name = name;
-            ID++;
             Capacity = cap;
+           
+        }
+
+        // In depth Constructor with all proterties
+        public Room(string name, int cap, bool projector, bool whiteboard, bool smartboard) : this( name,  cap)
+        {
+          
             Projector = projector;
             Whiteboard = whiteboard;
             SmartBoard = smartboard;
