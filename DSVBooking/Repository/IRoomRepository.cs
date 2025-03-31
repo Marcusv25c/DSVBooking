@@ -7,5 +7,7 @@ namespace DSVBooking.Repository
         void Add(Room room);
 
         List<Room> GetAll();
+
+
     }
 }

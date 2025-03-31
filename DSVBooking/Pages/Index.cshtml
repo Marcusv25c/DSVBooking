@@ -22,4 +22,20 @@
                 </div>
             </div>  
     }
+    @foreach (var booking in Model.Bookings)
+    {
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@booking.ID</h5>
+                    <p class="card-text">@booking.StartDateTime - @booking.EndDateTime </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-outline-danger" title="Nope ❤️‍🩹">
+                            <i class="bi bi-x-lg"></i> Nej tak
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>

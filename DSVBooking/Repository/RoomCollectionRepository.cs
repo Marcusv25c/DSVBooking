@@ -10,15 +10,16 @@ namespace DSVBooking.Repository
             _rooms.Add(room);
         }
 
-        public void Get(int id)
+        public Room Get(int id)
         {
             foreach(Room room in _rooms)
             {
                 if (id == room.ID)
                 {
-
+                    return room;
                 }
             }
+            return null;
         }
 
         public List<Room> GetAll()
