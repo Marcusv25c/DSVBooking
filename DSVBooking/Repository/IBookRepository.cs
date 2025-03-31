@@ -1,6 +1,9 @@
-﻿namespace DSVBooking.Repository
+﻿using DSVBooking.Model;
+
+namespace DSVBooking.Repository
 {
     public interface IBookRepository
     {
+        
     }
 }

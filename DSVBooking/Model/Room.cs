@@ -5,7 +5,7 @@ namespace DSVBooking.Model
     public class Room
     {
         public string Name { get; set; }
-        static int ID { get; set; } // Static for easy constructing 
+        public int ID { get; set; } // Static for easy constructing 
         public int Capacity { get; set; }
         public bool Projector { get; set; }
         public bool Whiteboard { get; set; }
