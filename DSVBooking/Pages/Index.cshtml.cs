@@ -12,13 +12,14 @@ namespace DSVBooking.Pages
     {
         private readonly RoomService _rs;
         [BindProperty]
-        public List<Room> Rooms { get; private set; }
+        public List<Room> Rooms { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger, RoomService rs)
         {
             _logger = logger;
+            Rooms = rs.GetAll();
             _rs = rs;
         }
 
