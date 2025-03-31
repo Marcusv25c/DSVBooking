@@ -32,10 +32,11 @@ namespace DSVBooking.Repository
         }
         private void Seed()
         {
-            _bookings.Add(new Booking(1, , 17/07/2025, 18/07/2025, "we want cookies!"));
-            _bookings.Add(new Booking());
+            _bookings.Add(new Booking(1, 17/07/2025, 18/07/2025, "we want cookies!"));
+            _bookings.Add(new Booking(2, 18/04/2025-12, 18/04/2025-15, "Pizza Party!!!"));
             _bookings.Add(new Booking());
         }
+
         /*
         /// <summary>
         /// Iterate through the list and find a specefic id

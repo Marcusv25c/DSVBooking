@@ -8,11 +8,12 @@
         /// starting datetime
         /// end datetime of booking and the user's written comment as properties
         /// </summary>
-        Room _room;
+        static int _tempID = 1;
+        int _iD;
+        int _roomID;
         DateTime _startDateTime;
         DateTime _endDateTime;
         string _comment;
-        int _iD;
 
 
     /// <summary>
@@ -22,7 +23,7 @@
     /// The comment is a user input which contains information about the booking.
     /// The iD is a unique identifier for the user's specific.
     /// </summary>
-        public Room Room { get => _room; set => _room = value; }
+        public int RoomID { get => _roomID; set => _roomID = value; }
         public DateTime StartDateTime { get => _startDateTime; set => _startDateTime = value; }
         public DateTime EndDateTime { get => _endDateTime; set => _endDateTime = value; }
         public string Comment { get => _comment; set => _comment = value; }
@@ -34,14 +35,15 @@
         /// The comment is a user input which contains information about the booking.
         /// </summary>
         /// <param name="iD">Unique identifier for booking</param>
-        /// <param name="room">Name of the room in the building</param>
+        /// <param name="roomID">ID of the room in the building</param>
         /// <param name="startDateTime">Start time of booking</param>
         /// <param name="endDateTime">End time of booking</param>
         /// <param name="comment">User input comment about booking</param>
-        Booking(int iD, Room room, DateTime startDateTime, DateTime endDateTime, string comment)
+
+        Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment)
         {
-            _iD = iD;
-            _room = room;
+            _iD = _tempID++;
+            _roomID = roomID;
             _startDateTime = startDateTime;
             _endDateTime = endDateTime;
             _comment = comment;
