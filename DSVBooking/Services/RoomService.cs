@@ -19,5 +19,9 @@ namespace DSVBooking.Services
             _roomRepo.Add(room);
         }
         
+        public List<Room> GetAll()
+        {
+            return _roomRepo.GetAll();
+        }
     }
 }

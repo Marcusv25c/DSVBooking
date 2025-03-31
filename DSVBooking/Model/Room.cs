@@ -5,13 +5,13 @@ namespace DSVBooking.Model
     public class Room
     {
         public string Name { get; set; }
-        public int ID { get; set; } // Static for easy constructing 
+        public int ID { get; set; }  
         public int Capacity { get; set; }
         public bool Projector { get; set; }
         public bool Whiteboard { get; set; }
         public bool SmartBoard { get; set; }
 
-
+        
 
         public Room()
         {
@@ -28,8 +28,7 @@ namespace DSVBooking.Model
         public Room(string name, int cap):this()
         {
             Name = name;
-            Capacity = cap;
-           
+            Capacity = cap;           
         }
 
         // In depth Constructor with all proterties

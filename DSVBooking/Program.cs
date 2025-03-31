@@ -1,3 +1,6 @@
+using DSVBooking.Services;
+using DSVBooking.Repository;
+
 namespace DSVBooking
 {
     public class Program
@@ -5,8 +8,8 @@ namespace DSVBooking
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
+            builder.Services.AddSingleton<IRoomRepository, RoomCollectionRepository>();
+            builder.Services.AddSingleton<RoomService>(); // Add services to the container.
             builder.Services.AddRazorPages();
 
             var app = builder.Build();

@@ -20,5 +20,17 @@ namespace DSVBooking.Repository
                 }
             }
         }
+
+        public List<Room> GetAll()
+        {
+            return _rooms;
+        }
+
+        public RoomCollectionRepository()
+        {
+            _rooms.Add(new Room("Arne", 30, false, true, false));
+            _rooms.Add(new Room("Børge", 60, true, false, true));
+            _rooms.Add(new Room("Carsten", 10));
+        }
     }
 }
