@@ -76,30 +76,8 @@ namespace DSVBooking.Repository
                     }
                 }
             }
-
-            //if (cap != null)
-            //{
-            //    foreach (Room room in _rooms)
-            //    {
-            //        if (room.Capacity >= cap)
-            //        {
-            //            bool duplicate = false;
-            //            foreach (Room room2 in filterRooms)
-            //            {
-            //                if (room.ID == room2.ID)
-            //                {
-            //                    duplicate = true;
-            //                    break;
-            //                }
-
-            //            }
-            //            if (!duplicate)
-            //                filterRooms.Add(room);
-            //        }
-            //    }
-            //}
-            foreach (Room room in filterRooms)
-                Debug.WriteLine("test " + room.Name);
+            //foreach (Room room in filterRooms)
+             //   Debug.WriteLine("test " + room.Name);
 
             return filterRooms;
         }

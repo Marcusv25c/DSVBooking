@@ -1,4 +1,6 @@
-﻿namespace DSVBooking.Model
+﻿using System.Xml.Linq;
+
+namespace DSVBooking.Model
 {
     public class Booking
     {
@@ -40,9 +42,19 @@
         /// <param name="endDateTime">End time of booking</param>
         /// <param name="comment">User input comment about booking</param>
 
-        public Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment)
+        public Booking() 
         {
             _iD = _tempID++;
+            RoomID = 0;
+            _startDateTime = new DateTime(2025, 04, 04, 10, 0, 0);
+            _endDateTime = new DateTime (2025,04,04,10,0,0);
+            _comment = "";
+
+
+        } //default constructor
+
+        public Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment):this()
+        {
             _roomID = roomID;
             _startDateTime = startDateTime;
             _endDateTime = endDateTime;
