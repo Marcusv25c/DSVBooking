@@ -1,4 +1,5 @@
-﻿using DSVBooking.Model;
+﻿using System.Diagnostics;
+using DSVBooking.Model;
 namespace DSVBooking.Repository
 {
     public class RoomCollectionRepository : IRoomRepository
@@ -25,6 +26,80 @@ namespace DSVBooking.Repository
         public List<Room> GetAll()
         {
             return _rooms;
+        }
+
+        public List<Room> Filter(bool whiteb, bool smartb, int cap)
+        {
+            List<Room> filterRooms = new List<Room>();
+            List<Booking> filterBookings = new List<Booking>();
+
+            if (smartb == true && whiteb == true)
+            {
+                foreach (Room room in _rooms)
+                {
+                    if (room.SmartBoard && room.Capacity >= cap && room.Whiteboard)
+                    {
+                        filterRooms.Add(room);
+                    }
+                }
+            }
+
+            else if (whiteb == true)
+            {
+                foreach (Room room in _rooms)
+                {
+                    if (room.Whiteboard && room.Capacity >= cap)
+                    {
+                        filterRooms.Add(room);
+                    }
+                }
+            }
+
+            else if (smartb == true)
+            {
+                foreach (Room room in _rooms)
+                {
+                    if (room.SmartBoard && room.Capacity >= cap)
+                    {
+                        filterRooms.Add(room);
+                    }
+                }
+            }
+
+            else
+            {
+                foreach (Room room in _rooms)
+                {
+                    if (room.Capacity >= cap)
+                    {
+                        filterRooms.Add(room);
+                    }
+                }
+            }
+
+            //if (cap != null)
+            //{
+            //    foreach (Room room in _rooms)
+            //    {
+            //        if (room.Capacity >= cap)
+            //        {
+            //            bool duplicate = false;
+            //            foreach (Room room2 in filterRooms)
+            //            {
+            //                if (room.ID == room2.ID)
+            //                {
+            //                    duplicate = true;
+            //                    break;
+            //                }
+
+            //            }
+            //            if (!duplicate)
+            //                filterRooms.Add(room);
+            //        }
+            //    }
+            //}
+            Debug.WriteLine("test " + filterRooms.Count);
+            return filterRooms;
         }
 
         public RoomCollectionRepository()
