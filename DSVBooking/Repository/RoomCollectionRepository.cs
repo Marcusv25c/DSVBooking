@@ -29,12 +29,12 @@ namespace DSVBooking.Repository
 
         public RoomCollectionRepository()
         {
-            _rooms.Add(new Room("Alpha", 30, true, false));
-            _rooms.Add(new Room("Beta", 60, true, true));
-            _rooms.Add(new Room("Charlie", 20, true, false));
-            _rooms.Add(new Room("Delta", 100, true, true));
-            _rooms.Add(new Room("Echo", 20, false, false));
-            _rooms.Add(new Room("Foxtrot", 50, false, true));
+            _rooms.Add(new Room("Alpha", 30, true, false, "imgpath"));
+            _rooms.Add(new Room("Beta", 60, true, true, "imgpath"));
+            _rooms.Add(new Room("Charlie", 20, true, false, "imgpath"));
+            _rooms.Add(new Room("Delta", 100, true, true, "imgpath"));
+            _rooms.Add(new Room("Echo", 20, false, false, "imgpath"));
+            _rooms.Add(new Room("Foxtrot", 50, false, true, "imgpaht"));
         }
     }
 }
