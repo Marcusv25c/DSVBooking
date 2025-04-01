@@ -6,10 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\media\" />
-  </ItemGroup>
-
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4lib_4bootstrap_4dist_4css_4bootstrap_1css_1map__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+  <ItemGroup>
+    <None Include="wwwroot\Media\conference1.jpg" />
+    <None Include="wwwroot\Media\conference2.jpg" />
+    <None Include="wwwroot\Media\conference3.jpg" />
+    <None Include="wwwroot\Media\conference4.jpg" />
+  </ItemGroup>
 
 </Project>
