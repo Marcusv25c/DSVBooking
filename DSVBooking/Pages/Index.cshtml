@@ -38,9 +38,9 @@
             <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <h5 class="card-title">@room.Name</h5>
-                        <p class="card-text">@room.ID, @room.Capacity personer</p>
+                            <p class="card-text"><i>@room.Capacity</i> personer.</p>
                         <div class="d-flex justify-content-end gap-3">
-                            <button class="btn btn-outline-danger" title="Book">
+                                <button class="btn btn-outline-primary" title="Book">
                                 <i class="bi bi-x-lg"></i> Book Rum
                             </button>                            
                         </div>
@@ -57,7 +57,7 @@
                     <h5 class="card-title">@booking.ID</h5>
                     <p class="card-text">@booking.StartDateTime - @booking.EndDateTime </p>
                     <div class="d-flex justify-content-end gap-3">
-                                <button class="btn btn-outline-danger" title="Book">
+                                <button class="btn btn-outline-primary" title="Book">
                             <i class="bi bi-x-lg"></i> Book Rum
                         </button>
                     </div>
