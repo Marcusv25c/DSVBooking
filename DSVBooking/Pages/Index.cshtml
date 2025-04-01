@@ -60,9 +60,9 @@
                         <div class=" row row-cols-5">
                             @for (int i = 7; i < 17; i++)
                             {
-                                var bgColor = Model.BookChecker(i) ? "background-color: red" : "background-color: green;";
+                                var bgColor = Model.BookChecker(i) ? "color: red" : "color: green;";
                                 <div class="col" style="@bgColor">
-                                    <p>@i</p>
+                                    <p>@i:00</p>
                                 </div>
                             }
                         </div>
