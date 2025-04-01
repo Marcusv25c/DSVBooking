@@ -9,7 +9,6 @@ namespace DSVBooking.Model
         public string Name { get; set; }
         public int ID { get; set; }  
         public int Capacity { get; set; }
-        public bool Projector { get; set; }
         public bool Whiteboard { get; set; }
         public bool SmartBoard { get; set; }
                 
@@ -19,7 +18,6 @@ namespace DSVBooking.Model
             Name = "test";
             ID = _tempID++;
             Capacity = 0;
-            Projector = false;
             Whiteboard = false;
             SmartBoard = false;
         }
@@ -33,9 +31,8 @@ namespace DSVBooking.Model
         }
 
         // In depth Constructor with all proterties
-        public Room(string name, int cap, bool projector, bool whiteboard, bool smartboard) : this( name,  cap)
+        public Room(string name, int cap, bool whiteboard, bool smartboard) : this( name,  cap)
         {
-            Projector = projector;
             Whiteboard = whiteboard;
             SmartBoard = smartboard;
         }
