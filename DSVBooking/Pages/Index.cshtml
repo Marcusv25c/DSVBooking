@@ -39,20 +39,20 @@
                         <div class="card-body text-start">
                             <h5 class="card-title text-center"><b>@room.Name</b></h5>
                             <img src="Media/@room.ImgPath" class="card-img-top" alt="Room Image">
-                           @*  <p class="card-text"><i>Max @room.Capacity personer.</i></p> *@
-                           <div class="row">
+                            @*  <p class="card-text"><i>Max @room.Capacity personer.</i></p> *@
+                            <div class="row">
                                 <div class="col mt-1">
-                                <p class="card-text">Max: @room.Capacity personer </p>
-                                <p class="card-text">Whiteboard @(room.Whiteboard ? "✅" : "❌")</p>
-                                <p class="card-text">Smartboard: @(room.SmartBoard ? "✅" : "❌")</p>
+                                    <p class="card-text">Max: @room.Capacity personer </p>
+                                    <p class="card-text">Whiteboard @(room.Whiteboard ? "✅" : "❌")</p>
+                                    <p class="card-text">Smartboard: @(room.SmartBoard ? "✅" : "❌")</p>
 
                                 </div>
 
                                 <div class="col">
                                     <div class="d-flex justify-content-end gap-3 mt-2">
-                                    <button class="btn btn-outline-primary" title="Book">
-                                        <i class="bi bi-x-lg"></i> Book Rum
-                                    </button>
+                                        <button class="btn btn-outline-primary" title="Book">
+                                            <i class="bi bi-x-lg"></i> Book Rum
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +60,7 @@
                         <div class=" row row-cols-5">
                             @for (int i = 7; i < 17; i++)
                             {
+                                <p>@(Model.BookChecker(i) ? "yup" : "nah") </p>
                                 <div class="col">
                                     <p>@i:00</p>
                                 </div>
