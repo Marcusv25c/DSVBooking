@@ -98,7 +98,9 @@ namespace DSVBooking.Repository
             //        }
             //    }
             //}
-            Debug.WriteLine("test " + filterRooms.Count);
+            foreach (Room room in filterRooms)
+                Debug.WriteLine("test " + room.Name);
+
             return filterRooms;
         }
 
