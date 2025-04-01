@@ -16,7 +16,7 @@ namespace DSVBooking.Pages
         public List<Booking> Bookings { get; set; }
         List<Booking> _activeBookings;
 
-        bool _isBooked = false;
+        public bool _isBooked = false;
 
         private DateTime setDate = DateTime.Now;
 
