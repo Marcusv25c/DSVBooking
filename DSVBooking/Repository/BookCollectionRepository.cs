@@ -36,7 +36,7 @@ namespace DSVBooking.Repository
         {
             _bookings.Add(new Booking(1, new DateTime(2025,04,01,10,0,0), new DateTime(2025,04,01,15,0,0), "we want cookies!"));
             _bookings.Add(new Booking(2, new DateTime(2025, 04, 14, 12, 0, 0), new DateTime(2025, 04, 14, 15, 0, 0), "Pizza Party!!!"));
-            _bookings.Add(new Booking(2, new DateTime(2025, 04, 24, 8, 0, 0), new DateTime(2025, 04, 24, 11, 0, 0), "Lost and found raffle"));
+            _bookings.Add(new Booking(5, new DateTime(2025, 04, 24, 8, 0, 0), new DateTime(2025, 04, 24, 11, 0, 0), "Lost and found raffle"));
         }
 
         

@@ -90,7 +90,6 @@ namespace DSVBooking.Repository
             _rooms.Add(new Room("Delta", 100, true, true, "conference4.jpg"));
             _rooms.Add(new Room("Echo", 20, false, false, "conference3.jpg"));
             _rooms.Add(new Room("Foxtrot", 50, false, true, "conference1.jpg"));
-            _rooms.Add(new Room("Foxtrot", 50, false, true, "conference2.jpg"));
         }
     }
 }

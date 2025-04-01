@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DSVBooking.Services;
 using DSVBooking.Repository;
 using DSVBooking.Model;
+using System.Diagnostics;
 
 namespace DSVBooking.Pages
 {
@@ -14,9 +15,9 @@ namespace DSVBooking.Pages
         public List<Room> Rooms { get; set; }
 
         public List<Booking> Bookings { get; set; }
-        List<Booking> _activeBookings;
+        List<Booking> _activeBookings = new List<Booking>();
 
-        public bool _isBooked = false;
+        bool _isBooked = false;
 
         private DateTime setDate = DateTime.Now;
 
@@ -31,10 +32,11 @@ namespace DSVBooking.Pages
             _bs = bs;
         }
 
-        public void Vancancy()
+        public void Vacancy()
         {
             foreach (Booking booking in Bookings)
             {
+                Debug.WriteLine("idag: " + setDate.Date + "bookings: " + booking.StartDateTime.Date);
                 if (booking.StartDateTime.Date == setDate.Date)
                 {
                     _activeBookings.Add(booking);
@@ -42,17 +44,17 @@ namespace DSVBooking.Pages
             }
         }
 
-        public bool BookChecker(int hour)
+        public bool BookChecker(int hour, int roomID)
         {
             if (_activeBookings != null)
             {
                 foreach (var booking in _activeBookings)
                 {
-                    if (hour == booking.StartDateTime.Hour)
+                    if (hour == booking.StartDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = true;
                     }
-                    else if (hour == booking.EndDateTime.Hour)
+                    else if (hour == booking.EndDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = false;
                     }
@@ -63,7 +65,7 @@ namespace DSVBooking.Pages
 
         public void OnGet()
         {
-
+            Vacancy();
         }
     }
 }
