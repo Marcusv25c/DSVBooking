@@ -106,12 +106,12 @@ namespace DSVBooking.Repository
 
         public RoomCollectionRepository()
         {
-            _rooms.Add(new Room("Alpha", 30, true, false));
-            _rooms.Add(new Room("Beta", 60, true, true));
-            _rooms.Add(new Room("Charlie", 20, true, false));
-            _rooms.Add(new Room("Delta", 100, true, true));
-            _rooms.Add(new Room("Echo", 20, false, false));
-            _rooms.Add(new Room("Foxtrot", 50, false, true));
+            _rooms.Add(new Room("Alpha", 30, true, false, "/media/conference1"));
+            _rooms.Add(new Room("Beta", 60, true, true, "/media/conference2"));
+            _rooms.Add(new Room("Charlie", 20, true, false, "/media/conference3"));
+            _rooms.Add(new Room("Delta", 100, true, true, "/media/conference4"));
+            _rooms.Add(new Room("Echo", 20, false, false, "/media/conference5"));
+            _rooms.Add(new Room("Foxtrot", 50, false, true, "/media/conference1"));
         }
     }
 }

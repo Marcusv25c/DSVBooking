@@ -14,7 +14,7 @@
                             <i class="bi bi-x-lg"></i> Se Booking
                         </button>
                     </div> 
-                 </div>
+                </div>
             </div>
             <div class="col">
                 <div class="card shadow-sm">
@@ -32,13 +32,16 @@
     <!--TEST-->
     <div class="container">
         <div class="row row-cols-3">
-    @foreach (var room in Model.Rooms)
-    {
-        <div class="col">
-            <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">@room.Name</h5>
-                            <p class="card-text"><i>@room.Capacity</i> personer.</p>
+            @foreach (var room in Model.Rooms)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-end">
+                            <h5 class="card-title text-center"><b>@room.Name</b></h5>
+                            <img src="/media/@room.ImgPath" class="card-img-top" alt="Room Image">
+                            <p class="card-text"><i>Max @room.Capacity personer.</i></p>
+                            <p class="card-text">Whiteboard: @(room.Whiteboard ? "✅" : "❌")</p>
+                            <p class="card-text">Smartboard: @(room.SmartBoard ? "✅" : "❌")</p>
                         <div class="d-flex justify-content-end gap-3">
                                 <button class="btn btn-outline-primary" title="Book">
                                 <i class="bi bi-x-lg"></i> Book Rum

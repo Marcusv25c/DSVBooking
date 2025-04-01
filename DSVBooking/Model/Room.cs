@@ -11,6 +11,7 @@ namespace DSVBooking.Model
         public int Capacity { get; set; }
         public bool Whiteboard { get; set; }
         public bool SmartBoard { get; set; }
+        public string ImgPath { get; set; }
                 
 
         public Room()
@@ -20,6 +21,7 @@ namespace DSVBooking.Model
             Capacity = 0;
             Whiteboard = false;
             SmartBoard = false;
+            ImgPath = "";
         }
 
 
@@ -31,10 +33,11 @@ namespace DSVBooking.Model
         }
 
         // In depth Constructor with all proterties
-        public Room(string name, int cap, bool whiteboard, bool smartboard) : this( name,  cap)
+        public Room(string name, int cap, bool whiteboard, bool smartboard, string imgPath) : this( name,  cap)
         {
             Whiteboard = whiteboard;
             SmartBoard = smartboard;
+            ImgPath = imgPath;
         }
     }
 }
