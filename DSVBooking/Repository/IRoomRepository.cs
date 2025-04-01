@@ -8,6 +8,6 @@ namespace DSVBooking.Repository
 
         List<Room> GetAll();
 
-
+        List<Room> Filter(bool whiteb, bool smartb, int cap);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using DSVBooking.Model;
 using System.Reflection.Metadata.Ecma335;
+using System.Diagnostics;
+
 namespace DSVBooking.Repository
 {
     public class BookCollectionRepository : IBookRepository
@@ -36,6 +38,8 @@ namespace DSVBooking.Repository
             _bookings.Add(new Booking(2, new DateTime(2025, 04, 14, 12, 0, 0), new DateTime(2025, 04, 14, 15, 0, 0), "Pizza Party!!!"));
             _bookings.Add(new Booking(2, new DateTime(2025, 04, 24, 8, 0, 0), new DateTime(2025, 04, 24, 11, 0, 0), "Lost and found raffle"));
         }
+
+        
 
         /*
         /// <summary>

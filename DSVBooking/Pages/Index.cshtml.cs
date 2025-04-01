@@ -29,8 +29,8 @@ namespace DSVBooking.Pages
         }
 
         public void OnGet()
-        {   
-
+        {
+            _rs.Filter(false, false, 30);
         }
     }
 }

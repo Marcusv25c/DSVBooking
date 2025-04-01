@@ -24,3 +24,13 @@ body {
 .navbar-color {
     background-color: #dbe0f2;
 }
+.btn-danger:hover {
+    background-color: #192862;
+    border-color: #192862;
+}
+.btn-danger {
+    background-color: #dbe0f2;
+    border-color: #dbe0f2;
+}
+
+
