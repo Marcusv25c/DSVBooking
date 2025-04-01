@@ -17,6 +17,8 @@ namespace DSVBooking.Pages
 
         public List<Booking> Bookings { get; set; }
 
+        private DateTime setDate = DateTime.Now;
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs)
@@ -30,7 +32,7 @@ namespace DSVBooking.Pages
 
         public void OnGet()
         {
-            _rs.Filter(false, false, 30);
+
         }
     }
 }
