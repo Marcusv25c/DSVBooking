@@ -8,5 +8,6 @@ namespace DSVBooking.Repository
 
         List<Booking> GetAll();
 
+
     }
 }
