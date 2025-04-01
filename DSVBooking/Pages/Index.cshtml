@@ -6,6 +6,8 @@
 
 <div class="text-center">
     <!--TEST-->
+    <div class="container">
+        <div class="row row-cols-3">
     @foreach (var room in Model.Rooms)
     {
         <div class="col">
@@ -22,6 +24,7 @@
                 </div>
             </div>  
     }
+   
     @foreach (var booking in Model.Bookings)
     {
         <div class="col">
@@ -38,4 +41,6 @@
             </div>
         </div>
     }
+</div>
+    </div>
 </div>
