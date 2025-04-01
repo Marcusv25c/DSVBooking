@@ -2,3 +2,23 @@
 @model DSVBooking.Pages.BookingEditorModel
 @{
 }
+<body>
+@foreach (var booking in Model.Bookings)
+{
+        <div class="col row-cols-3">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Booking nr: @booking.ID</h5>
+                <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
+                <p class="card-text">@booking.StartDateTime.ToString("HH-mm") - @booking.EndDateTime.ToString("HH-mm")</p>
+                <p class="card-text">@booking.Comment</p>
+                <div class="d-flex justify-content-end gap-3">
+                    <button class="btn btn-outline-primary" title="Book">
+                        <i class="bi bi-x-lg"></i> Book Rum
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</body>
