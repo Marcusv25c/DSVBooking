@@ -2,14 +2,24 @@
 @model DSVBooking.Pages.FormModel
 @{
 }
+<link href="~/css/form.css" rel="stylesheet" />
 <body>
-    <form>
+    <container-sm>
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+    <form class="form1">
         <div class="form-group">
             <label for="inputDateTime"></label>
-            <input type="datetime" class="form-control" id="inputDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time">
-            <small id="emailHelp" class="form-text text-muted">Enter Date and time for your booking here</small>
+            <input type="datetime" class="form-control" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time">
         </div>
+            <div class="form-group">
+                <label for="inputComment"></label>
+                <input type="text" class="form-control" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment">
+                <small id="commentHelp" class="form-text text-muted">Enter any comments or special requests for the staff here.</small>
+            </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
+    </<div>
+    </div>
+    </container-sm>
 </body>
