@@ -3,9 +3,10 @@
 @{
 }
 <body>
+     <div class="container row row-cols-3">
 @foreach (var booking in Model.Bookings)
 {
-        <div class="col row-cols-3">
+    <div class="col">
         <div class="card shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-title">Booking nr: @booking.ID</h5>
@@ -14,11 +15,12 @@
                 <p class="card-text">@booking.Comment</p>
                 <div class="d-flex justify-content-end gap-3">
                     <button class="btn btn-outline-primary" title="Book">
-                        <i class="bi bi-x-lg"></i> Book Rum
+                        <i class="bi bi-x-lg"></i> Rediger
                     </button>
                 </div>
             </div>
         </div>
     </div>
 }
+</div>
 </body>
