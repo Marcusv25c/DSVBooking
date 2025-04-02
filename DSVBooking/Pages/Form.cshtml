@@ -12,12 +12,12 @@
     <form method="post">
         <div class="form-group">
             <label for="inputDateTime"></label>
-            <input type="datetime" asp-for="Booking.StartDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time">
+                        <input type="datetime-local" asp-for="Booking.StartDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
         </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="inputComment"></label>
                 <input type="text" asp-for="Booking.Comment" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment" value="">
-                <small id="commentHelp" class="form-text text-muted">Enter any comments or special requests for the staff here.</small>
+                <small id="commentHelp" class="form-text text-muted">Enter any comments or special requests for the staff here.  </small>
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
