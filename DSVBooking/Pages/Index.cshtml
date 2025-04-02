@@ -6,47 +6,22 @@
 <link href="~/css/site.css" rel="stylesheet" />
 
 <!--Filtrering-->
+<header>
 <body class="container-fluid bg-light">
-    <h3 class="d-inline-block" style="font-weight: bold; color: #192862">Filtrering</h3>
+    <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
     <form method="filter">
-        <label for="whiteboard">Whiteboard: </label>
-        <input class="me-4" type="checkbox" id="whiteboard" name="whiteboard" value="true">
-        <label for="smartboard">Smartboard: </label>
-        <input class="me-4" type="checkbox" id="smartboard" name="smartboard" value="true">
-        <label for="capacity">Antal deltagere: </label>
-        <input type="number" id="capacity" name="capacity" />
-        <input type="submit" class="btn btn-primary" value="Run Filter">Apply Filters />
+        <label for="filterWB" class="control-label">Whiteboard: </label>
+        <input class="me-4" type="checkbox" name="filterWB" value="true">
+        <label for="filterSB" class="control-label">Smartboard: </label>
+        <input class="me-4" type="checkbox" id="smartboard" name="filterSB" value="true">
+        <label for="filterCap" class="control-label">Antal deltagere: </label>
+        <input class="" type="number" id="capacity" name="filterCap" />
+        <input type="submit" class="btn btn-primary" value="Filtrér">
     </form>
 </body>
+</header>
 
     <div class="container">
-
-        <!--FILTER FORM-->
-    <form method="get">
-        <div class="row">
-            <!-- Capacity Filter -->
-            <div class="col">
-                <label for="capacity">Minimum Capacity:</label>
-                <input type="number" name="capacity" class="form-control" value="@*@Model.FilterCapacity*@" />
-            </div>
-
-            <!-- Whiteboard Filter -->
-            <div class="col">
-                <label for="whiteboard">Whiteboard:</label>
-                <select name="whiteboard" class="form-control">
-                    <option value="">Any</option>
-                    <option value="true" selected="@* @(Model.FilterWhiteboard == true ? "selected" : null) *@">Yes</option>
-                    <option value="false" selected="@* @(Model.FilterWhiteboard == false ? "selected" : null) *@">No</option>
-                </select>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="col align-self-end">
-                <button type="submit" class="btn btn-primary">Apply Filters</button>
-            </div>
-        </div>
-    </form>
-
     <!--ROOM CARDS-->
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
@@ -54,7 +29,7 @@
          
                  <form method="post">
                 <div class="col">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm mt-3">
                         <div class="card-body text-start">
                           
                             <h5 class="card-title text-center"><b>@room.Name</b></h5>

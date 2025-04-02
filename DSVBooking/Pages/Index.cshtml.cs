@@ -22,10 +22,12 @@ namespace DSVBooking.Pages
         List<Booking> _activeBookings = new List<Booking>();
         
         bool _isBooked = false;
-
-        int filterCap = 0;
-        bool filterWB = false;
-        bool filterSB = false;
+        [BindProperty]
+        int filterCap { get; set; }
+        [BindProperty]
+        bool filterWB { get; set; }
+        [BindProperty]
+        bool filterSB { get; set; }
 
         private DateTime setDate = DateTime.Now;
 
@@ -38,7 +40,7 @@ namespace DSVBooking.Pages
             _rs = rs;
             Bookings = bs.GetAll();
             _bs = bs;
-            Moveing = new MovingBetween();
+            Moveing = new MovingBetween();      
             _movingService = _ms;
         }
 
