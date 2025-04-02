@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DSVBooking.Services;
 using DSVBooking.Repository;
 using DSVBooking.Model;
-
+using System.Diagnostics;
 
 namespace DSVBooking.Pages
 {
@@ -24,6 +24,28 @@ namespace DSVBooking.Pages
         }
         public void OnGet()
         {
+        }
+
+        // This handler will be triggered when the form is submitted
+        public IActionResult OnPostEditBooking(int bookingId, DateTime startDateTime, DateTime endDateTime, string comment)
+        {
+            // Find the booking by ID
+            Debug.WriteLine(bookingId);
+            var bookingToUpdate = Bookings.FirstOrDefault(b => b.ID == bookingId);
+            
+            if (bookingToUpdate != null)
+            {
+                // Replace the old booking with the updated one
+                bookingToUpdate.StartDateTime = startDateTime;
+                bookingToUpdate.EndDateTime = endDateTime;
+                bookingToUpdate.Comment = comment;
+            }
+
+            // Save changes to the repository or perform other necessary actions
+            _bs.UpdateBooking(bookingToUpdate);
+
+            // Redirect back to the page to refresh the list
+            return RedirectToPage();
         }
     }
 }

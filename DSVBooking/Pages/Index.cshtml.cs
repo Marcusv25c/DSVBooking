@@ -20,8 +20,12 @@ namespace DSVBooking.Pages
         public List<Booking> Bookings { get; set; }
         public MovingBetween Moveing { get; set; }
         List<Booking> _activeBookings = new List<Booking>();
-
+        
         bool _isBooked = false;
+
+        int filterCap = 0;
+        bool filterWB = false;
+        bool filterSB = false;
 
         private DateTime setDate = DateTime.Now;
 
@@ -42,7 +46,6 @@ namespace DSVBooking.Pages
         {
             foreach (Booking booking in Bookings)
             {
-                Debug.WriteLine("idag: " + setDate.Date + "bookings: " + booking.StartDateTime.Date);
                 if (booking.StartDateTime.Date == setDate.Date)
                 {
                     _activeBookings.Add(booking);
@@ -74,6 +77,14 @@ namespace DSVBooking.Pages
             Vacancy();
         }
         public IActionResult OnPost(int idroom)
+
+        public void Filter(int cap, bool wb, bool sb)
+        {
+            List<Room> filterRooms = new List<Room>();
+            Rooms = _rs.Filter(cap, wb, sb);
+        }
+
+        public IActionResult OnPost()
         {
             Debug.WriteLine("test" + idroom);
             

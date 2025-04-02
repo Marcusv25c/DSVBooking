@@ -4,9 +4,50 @@
     ViewData["Title"] = "Home page";
 }
 <link href="~/css/site.css" rel="stylesheet" />
+
+<!--Filtrering-->
+<body class="container-fluid bg-light">
+    <h3 class="d-inline-block" style="font-weight: bold; color: #192862">Filtrering</h3>
+    <form method="filter">
+        <label for="whiteboard">Whiteboard: </label>
+        <input class="me-4" type="checkbox" id="whiteboard" name="whiteboard" value="true">
+        <label for="smartboard">Smartboard: </label>
+        <input class="me-4" type="checkbox" id="smartboard" name="smartboard" value="true">
+        <label for="capacity">Antal deltagere: </label>
+        <input type="number" id="capacity" name="capacity" />
+         <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </form>
+</body>
+
     <div class="container">
-          
-                <div class="form-group">
+
+        <!--FILTER FORM-->
+    <form method="get">
+        <div class="row">
+            <!-- Capacity Filter -->
+            <div class="col">
+                <label for="capacity">Minimum Capacity:</label>
+                <input type="number" name="capacity" class="form-control" value="@*@Model.FilterCapacity*@" />
+            </div>
+
+            <!-- Whiteboard Filter -->
+            <div class="col">
+                <label for="whiteboard">Whiteboard:</label>
+                <select name="whiteboard" class="form-control">
+                    <option value="">Any</option>
+                    <option value="true" selected="@* @(Model.FilterWhiteboard == true ? "selected" : null) *@">Yes</option>
+                    <option value="false" selected="@* @(Model.FilterWhiteboard == false ? "selected" : null) *@">No</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col align-self-end">
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+            </div>
+        </div>
+    </form>
+
+    <!--ROOM CARDS-->
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
             {

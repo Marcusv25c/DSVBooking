@@ -14,13 +14,72 @@
                 <p class="card-text">@booking.StartDateTime.ToString("HH-mm") - @booking.EndDateTime.ToString("HH-mm")</p>
                 <p class="card-text">@booking.Comment</p>
                 <div class="d-flex justify-content-end gap-3">
-                    <button class="btn btn-outline-primary" title="Book">
-                        <i class="bi bi-x-lg"></i> Rediger
-                    </button>
+                    <!--button to open module for editing booking-->
+                            <button class="btn btn-outline-primary EditBTN" data-bs-toggle="modal" data-bs-target="#editBookingModal"
+                                    data-booking-id="@booking.ID"
+                                    data-booking-start="@booking.StartDateTime"
+                                    data-booking-end="@booking.EndDateTime"
+                                    data-booking-comment="@booking.Comment">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                            <button class="btn btn-outline-primary">
+                            <i class "bi bi-pencil">Delete</i>
+                            </button>
                 </div>
             </div>
         </div>
     </div>
+
 }
+
+<!--Module for editing bookings-->
+        <div class="modal fade" id="editBookingModal" tabindex="-1" aria-labelledby="editBookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="post" asp-page-handler="EditBooking">
+                        <div class="modal-body">
+                            <input type="hidden" id="BookingId" name="BookingId" value="" />
+
+                            <div class="mb-3">
+                                <label for="StartDateTime" class="form-label">Start Date/Time</label>
+                                <input type="datetime-local" class="form-control" id="StartDateTime" name="StartDateTime" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="EndDateTime" class="form-label">End Date/Time</label>
+                                <input type="datetime-local" class="form-control" id="EndDateTime" name="EndDateTime" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Comment" class="form-label">Comment</label>
+                                <textarea class="form-control" id="Comment" name="Comment" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 </div>
+<script>
+        var buttons = document.querySelectorAll(".EditBTN");
+
+        buttons.forEach(function(button) {
+
+          button.addEventListener("click", function(event) {
+
+              var clickedButton = event.target;
+        document.getElementById("BookingId").value=clickedButton.getAttribute("data-booking-id");
+
+          });
+
+        });
+</script>
 </body>

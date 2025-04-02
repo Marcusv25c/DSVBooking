@@ -28,9 +28,9 @@ namespace DSVBooking.Services
             return _roomRepo.Get(ID);
         }
 
-        public List<Room> Filter(bool whiteb, bool smartb, int cap)
+        public List<Room> Filter(int cap, bool whiteb, bool smartb)
         {
-            return _roomRepo.Filter(whiteb, smartb, cap);
+            return _roomRepo.Filter(cap, whiteb, smartb);
         }
 
     }

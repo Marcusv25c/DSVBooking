@@ -1,5 +1,6 @@
 ﻿using DSVBooking.Repository;
 using DSVBooking.Model;
+using System.Diagnostics;
 
 namespace DSVBooking.Services
 {
@@ -9,7 +10,8 @@ namespace DSVBooking.Services
 
         public BookService(IBookRepository bookRepo)
         {
-            _bookRepo = bookRepo;
+            //added throw to avoid null exception error
+            _bookRepo = bookRepo ?? throw new ArgumentNullException(nameof(bookRepo));
         }
 
         public List<Booking> GetAll()
@@ -20,6 +22,23 @@ namespace DSVBooking.Services
         public void Add(Booking book)
         {
             _bookRepo.Add(book);
+        }
+
+        //Method to update the booking list
+        public void UpdateBooking(Booking updatedBooking)
+        {
+            // Find the existing booking by ID
+            var existingBooking = _bookRepo.GetAll().FirstOrDefault(b => b.ID == updatedBooking.ID);
+            Debug.WriteLine(updatedBooking.ID);
+            if (existingBooking != null)
+            {
+                // Replace the old booking's values with the new ones
+                existingBooking.StartDateTime = updatedBooking.StartDateTime;
+                existingBooking.EndDateTime = updatedBooking.EndDateTime;
+                existingBooking.Comment = updatedBooking.Comment;
+
+                // In a real scenario, you might save changes to a database here
+            }
         }
     }
 }
