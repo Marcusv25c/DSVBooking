@@ -76,7 +76,7 @@ namespace DSVBooking.Pages
         {
             Vacancy();
         }
-        public IActionResult OnPost(int idroom)
+
 
         public void OnPostFilter(int cap, bool wb, bool sb)
         {
@@ -85,7 +85,7 @@ namespace DSVBooking.Pages
             Debug.WriteLine("test filter");
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(int idroom)
         {
             Debug.WriteLine("test" + idroom);
             
