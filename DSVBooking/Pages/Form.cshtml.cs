@@ -26,7 +26,6 @@ namespace DSVBooking.Pages
 
         public IActionResult OnPost()
         {
-            Booking.ID++;
             Debug.WriteLine("test " + Booking.ID);
             _bookService.Add(Booking);
             return RedirectToPage("/Index");
