@@ -11,6 +11,7 @@ namespace DSVBooking.Pages
     {
         private readonly RoomService _rs;
         private readonly BookService _bs;
+
         [BindProperty]
         public List<Room> Rooms { get; set; }
 
