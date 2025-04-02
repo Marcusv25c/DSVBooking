@@ -52,8 +52,8 @@
             @foreach (var room in Model.Rooms)
             {
          
-
-                <div class="col mt-3">
+                 <form method="post">
+                <div class="col">
                     <div class="card shadow-sm">
                         <div class="card-body text-start">
                           
@@ -70,8 +70,9 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-end gap-3 mt-2">
+                                        <input type="hidden" value="@room.ID" name="idroom"/>
                                         <button class="btn btn-outline-primary" title="Book" @* onclick="@Model.BookRoom(room.ID)" *@>
-                                        <a class="nav-link text-dark" type="submit"><i class="bi bi-x-lg"> Book Rum </i></a>
+                                        Book room
                                         </button>
                                     </div>
                                 </div>
@@ -88,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
 
             }
         </div>

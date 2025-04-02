@@ -76,6 +76,7 @@ namespace DSVBooking.Pages
         {
             Vacancy();
         }
+        public IActionResult OnPost(int idroom)
 
         public void OnPostFilter(int cap, bool wb, bool sb)
         {
@@ -86,8 +87,18 @@ namespace DSVBooking.Pages
 
         public IActionResult OnPost()
         {
-            _movingService.Add(Moveing);
-            return RedirectToPage("/Form");
+            Debug.WriteLine("test" + idroom);
+            
+            
+            Room bound = _rs.Get(idroom);
+
+
+
+
+
+
+
+            return RedirectToPage("/Form", new { roomname = bound.Name });
         }
     }
 }

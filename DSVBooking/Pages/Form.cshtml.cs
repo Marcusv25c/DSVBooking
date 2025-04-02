@@ -8,15 +8,18 @@ namespace DSVBooking.Pages
 {
     public class FormModel : PageModel
     {
+        private readonly MovingService _ms;
+        private MovingService _moveingService;
         private BookService _bookService;
         [BindProperty]
         public Booking Booking { get; set; }
         public int Lokale { get; set; }
 
-        public FormModel(BookService bs)
+        public FormModel(BookService bs,MovingService _ms)
         {
             Booking = new Booking();
             _bookService = bs;
+            _moveingService = _ms;
         }
 
         public void OnGet()
@@ -28,7 +31,7 @@ namespace DSVBooking.Pages
         {
             Debug.WriteLine("test " + Booking.ID);
             _bookService.Add(Booking);
-            return RedirectToPage("/Index");
+            return RedirectToPage("/BookingEditor");
         }
     }
 }
