@@ -11,6 +11,7 @@ namespace DSVBooking.Pages
         private BookService _bookService;
         [BindProperty]
         public Booking Booking { get; set; }
+        public int Lokale { get; set; }
 
         public FormModel(BookService bs)
         {
@@ -19,6 +20,7 @@ namespace DSVBooking.Pages
         }
         public void OnGet()
         {
+
         }
 
         public IActionResult OnPost()

@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace DSVBooking.Model
 {
@@ -51,12 +52,11 @@ namespace DSVBooking.Model
             _startDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour);
             _endDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour).AddHours(1);
             _comment = "";
+            Debug.WriteLine("cdw" + ID);
             
 
 
         } //default constructor
-
-
 
         public Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment):this()
         {
