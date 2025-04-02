@@ -42,6 +42,8 @@ namespace DSVBooking.Model
         /// <param name="endDateTime">End time of booking</param>
         /// <param name="comment">User input comment about booking</param>
 
+
+      
         public Booking() 
         {
             _iD = _tempID++;
@@ -52,6 +54,8 @@ namespace DSVBooking.Model
 
 
         } //default constructor
+
+
 
         public Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment):this()
         {
