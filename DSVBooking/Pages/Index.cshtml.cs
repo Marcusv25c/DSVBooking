@@ -42,7 +42,6 @@ namespace DSVBooking.Pages
         {
             foreach (Booking booking in Bookings)
             {
-                Debug.WriteLine("idag: " + setDate.Date + "bookings: " + booking.StartDateTime.Date);
                 if (booking.StartDateTime.Date == setDate.Date)
                 {
                     _activeBookings.Add(booking);

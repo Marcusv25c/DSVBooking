@@ -11,6 +11,7 @@ namespace DSVBooking.Pages
         private BookService _bookService;
         [BindProperty]
         public Booking Booking { get; set; }
+        public int Lokale { get; set; }
 
         public FormModel(BookService bs)
         {
@@ -25,7 +26,7 @@ namespace DSVBooking.Pages
 
         public IActionResult OnPost()
         {
-            Debug.WriteLine("test " + Booking.ID);
+            Debug.WriteLine("test " + Booking.RoomID);
             _bookService.Add(Booking);
             return RedirectToPage("/Index");
         }

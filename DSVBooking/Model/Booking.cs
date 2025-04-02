@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.Diagnostics;
+using System.Xml.Linq;
+using DSVBooking.Pages;
 
 namespace DSVBooking.Model
 {
@@ -43,7 +45,6 @@ namespace DSVBooking.Model
         /// <param name="comment">User input comment about booking</param>
 
 
-      
         public Booking() 
         {
             _iD = _tempID++;
@@ -52,11 +53,12 @@ namespace DSVBooking.Model
             _endDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour).AddHours(1);
             _comment = "";
             
+            
 
 
         } //default constructor
 
-
+        
 
         public Booking(int roomID, DateTime startDateTime, DateTime endDateTime, string comment):this()
         {
