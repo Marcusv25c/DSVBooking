@@ -52,7 +52,7 @@ namespace DSVBooking.Model
             _startDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour);
             _endDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour).AddHours(1);
             _comment = "";
-            Debug.WriteLine("cdw" + ID);
+            
             
 
 
