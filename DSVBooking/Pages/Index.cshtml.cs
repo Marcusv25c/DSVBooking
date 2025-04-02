@@ -23,6 +23,10 @@ namespace DSVBooking.Pages
         
         bool _isBooked = false;
 
+        int filterCap = 0;
+        bool filterWB = false;
+        bool filterSB = false;
+
         private DateTime setDate = DateTime.Now;
 
         private readonly ILogger<IndexModel> _logger;
@@ -71,6 +75,12 @@ namespace DSVBooking.Pages
         public void OnGet()
         {
             Vacancy();
+        }
+
+        public void Filter(int cap, bool wb, bool sb)
+        {
+            List<Room> filterRooms = new List<Room>();
+            Rooms = _rs.Filter(cap, wb, sb);
         }
 
         public IActionResult OnPost()

@@ -28,7 +28,7 @@
                 return _rooms;
             }
 
-            public List<Room> Filter(bool whiteb, bool smartb, int cap)
+            public List<Room> Filter(int cap, bool whiteb, bool smartb)
             {
                 List<Room> filterRooms = new List<Room>();
                 List<Booking> filterBookings = new List<Booking>();
