@@ -5,8 +5,34 @@
 }
 <link href="~/css/site.css" rel="stylesheet" />
     <div class="container">
-           <form method="post">
-                <div class="form-group">
+
+        <!--FILTER FORM-->
+    <form method="get">
+        <div class="row">
+            <!-- Capacity Filter -->
+            <div class="col">
+                <label for="capacity">Minimum Capacity:</label>
+                <input type="number" name="capacity" class="form-control" value="@*@Model.FilterCapacity*@" />
+            </div>
+
+            <!-- Whiteboard Filter -->
+            <div class="col">
+                <label for="whiteboard">Whiteboard:</label>
+                <select name="whiteboard" class="form-control">
+                    <option value="">Any</option>
+                    <option value="true" selected="@* @(Model.FilterWhiteboard == true ? "selected" : null) *@">Yes</option>
+                    <option value="false" selected="@* @(Model.FilterWhiteboard == false ? "selected" : null) *@">No</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col align-self-end">
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+            </div>
+        </div>
+    </form>
+
+    <!--ROOM CARDS-->
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
             {
