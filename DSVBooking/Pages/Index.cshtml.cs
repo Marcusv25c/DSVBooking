@@ -73,10 +73,20 @@ namespace DSVBooking.Pages
         {
             Vacancy();
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int idroom)
         {
-            _movingService.Add(Moveing);
-            return RedirectToPage("/Form");
+            Debug.WriteLine("test" + idroom);
+            
+            
+            Room bound = _rs.Get(idroom);
+
+
+
+
+
+
+
+            return RedirectToPage("/Form", new { roomname = bound.Name });
         }
     }
 }
