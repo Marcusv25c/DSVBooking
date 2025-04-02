@@ -24,6 +24,11 @@ namespace DSVBooking.Services
             _bookRepo.Add(book);
         }
 
+        public void DeleteBooking(int bookingId)
+        {
+            _bookRepo.Delete(bookingId);
+        }
+
         //Method to update the booking list
         public void UpdateBooking(Booking updatedBooking)
         {

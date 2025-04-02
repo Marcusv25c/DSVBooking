@@ -8,6 +8,6 @@ namespace DSVBooking.Repository
 
         List<Booking> GetAll();
 
-
+        void Delete(int bookingId);
     }
 }

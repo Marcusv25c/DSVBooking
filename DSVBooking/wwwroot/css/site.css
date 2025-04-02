@@ -32,5 +32,12 @@ body {
     background-color: #dbe0f2;
     border-color: #dbe0f2;
 }
-
+.btn-delete {
+    background-color: #ff0000;
+    border-color: #192862;
+}
+    .btn-delete:hover {
+        background-color: #cc0000;
+        border-color: #192862;
+    }
 

@@ -32,6 +32,17 @@ namespace DSVBooking.Repository
         {
             return _bookings;
         }
+
+        //new deletion method
+        public void Delete(int bookingId)
+        {
+            var bookingToDelete = _bookings.FirstOrDefault(b => b.ID == bookingId);
+            if (bookingToDelete != null)
+            {
+                _bookings.Remove(bookingToDelete);
+            }
+        }
+
         private void Seed()
         {
             _bookings.Add(new Booking(1, new DateTime(2025, 04, 01, 10, 0, 0), new DateTime(2025, 04, 01, 15, 0, 0), "we want cookies!"));

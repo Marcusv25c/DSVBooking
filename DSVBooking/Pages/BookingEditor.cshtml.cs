@@ -26,7 +26,17 @@ namespace DSVBooking.Pages
         {
         }
 
-        // This handler will be triggered when the form is submitted
+        //method for deleting bookings
+        public IActionResult OnPostDeleteBooking(int bookingId)
+        {
+            // Call the service to delete the booking
+            _bs.DeleteBooking(bookingId);
+
+            // Redirect back to the page to refresh the list of bookings
+            return RedirectToPage();
+        }
+
+        //method for editing bookings
         public IActionResult OnPostEditBooking(int bookingId, DateTime startDateTime, DateTime endDateTime, string comment)
         {
             // Find the booking by ID
