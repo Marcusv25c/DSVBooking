@@ -47,7 +47,7 @@ namespace DSVBooking.Model
 
         public Booking() 
         {
-            _iD = _tempID++;
+            _iD = _tempID;
             RoomID = 0;
             _startDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour);
             _endDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour).AddHours(1);
