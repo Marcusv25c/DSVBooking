@@ -5,12 +5,17 @@
 }
 <link href="~/css/site.css" rel="stylesheet" />
     <div class="container">
+           <form method="post">
+                <div class="form-group">
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
             {
+         
+
                 <div class="col">
                     <div class="card shadow-sm">
                         <div class="card-body text-start">
+                          
                             <h5 class="card-title text-center"><b>@room.Name</b></h5>
                             <img src="Media/@room.ImgPath" class="card-img-top" alt="Room Image">
                             @*  <p class="card-text"><i>Max @room.Capacity personer.</i></p> *@
@@ -25,7 +30,7 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-end gap-3 mt-2">
                                         <button class="btn btn-outline-primary" title="Book" @* onclick="@Model.BookRoom(room.ID)" *@>
-                                            <a class="nav-link text-dark" asp-area="" asp-page="/Form"><i class="bi bi-x-lg"> Book Rum </i></a>
+                                        <a class="nav-link text-dark" type="submit"><i class="bi bi-x-lg"> Book Rum </i></a>
                                         </button>
                                     </div>
                                 </div>
@@ -42,7 +47,10 @@
                         </div>
                     </div>
                 </div>
+
             }
-        </div>  
+        </div>
+        </div>
+    </form>
+
     </div>
-</div>

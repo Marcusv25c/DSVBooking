@@ -11,10 +11,14 @@ namespace DSVBooking.Pages
     {
         private readonly RoomService _rs;
         private readonly BookService _bs;
+        private readonly MovingService _ms;
         [BindProperty]
         public List<Room> Rooms { get; set; }
 
+        private MovingService _movingService;
+
         public List<Booking> Bookings { get; set; }
+        public MovingBetween Moveing { get; set; }
         List<Booking> _activeBookings = new List<Booking>();
 
         bool _isBooked = false;
@@ -23,13 +27,15 @@ namespace DSVBooking.Pages
 
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs)
+        public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs, MovingService _ms)
         {
             _logger = logger;
             Rooms = rs.GetAll();
             _rs = rs;
             Bookings = bs.GetAll();
             _bs = bs;
+            Moveing = new MovingBetween();
+            _movingService = _ms;
         }
 
         public void Vacancy()
@@ -62,10 +68,15 @@ namespace DSVBooking.Pages
             }
             return _isBooked;
         }
-
+        
         public void OnGet()
         {
             Vacancy();
+        }
+        public IActionResult OnPost()
+        {
+            _movingService.Add(Moveing);
+            return RedirectToPage("/Form");
         }
     }
 }
