@@ -77,10 +77,11 @@ namespace DSVBooking.Pages
             Vacancy();
         }
 
-        public void Filter(int cap, bool wb, bool sb)
+        public void OnPostFilter(int cap, bool wb, bool sb)
         {
             List<Room> filterRooms = new List<Room>();
             Rooms = _rs.Filter(cap, wb, sb);
+            Debug.WriteLine("test filter");
         }
 
         public IActionResult OnPost()
