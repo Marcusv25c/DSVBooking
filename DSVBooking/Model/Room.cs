@@ -17,7 +17,7 @@ namespace DSVBooking.Model
         public Room()
         {
             Name = "test";
-            ID = _tempID++;
+            ID = _tempID;
             Capacity = 0;
             Whiteboard = false;
             SmartBoard = false;
