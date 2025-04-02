@@ -20,7 +20,7 @@ namespace DSVBooking.Pages
         public List<Booking> Bookings { get; set; }
         public MovingBetween Moveing { get; set; }
         List<Booking> _activeBookings = new List<Booking>();
-
+        
         bool _isBooked = false;
 
         private DateTime setDate = DateTime.Now;
@@ -73,6 +73,7 @@ namespace DSVBooking.Pages
         {
             Vacancy();
         }
+
         public IActionResult OnPost()
         {
             _movingService.Add(Moveing);

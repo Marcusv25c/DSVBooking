@@ -17,8 +17,10 @@ namespace DSVBooking.Pages
             Booking = new Booking();
             _bookService = bs;
         }
+
         public void OnGet()
         {
+
         }
 
         public IActionResult OnPost()

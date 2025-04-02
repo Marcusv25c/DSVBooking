@@ -4,6 +4,20 @@
     ViewData["Title"] = "Home page";
 }
 <link href="~/css/site.css" rel="stylesheet" />
+
+<!--Filtrering-->
+<body class="container-fluid bg-light">
+    <h3 class="d-inline-block" style="font-weight: bold; color: #192862">Filtrering</h3>
+    <form method="filter">
+        <label for="whiteboard">Whiteboard: </label>
+        <input class="me-4" type="checkbox" id="whiteboard" name="whiteboard" value="true">
+        <label for="smartboard">Smartboard: </label>
+        <input class="me-4" type="checkbox" id="smartboard" name="smartboard" value="true">
+        <label for="capacity">Antal deltagere: </label>
+        <input type="number" id="capacity" name="capacity" />
+    </form>
+</body>
+
     <div class="container">
            <form method="post">
                 <div class="form-group">
@@ -12,7 +26,7 @@
             {
          
 
-                <div class="col">
+                <div class="col mt-3">
                     <div class="card shadow-sm">
                         <div class="card-body text-start">
                           
