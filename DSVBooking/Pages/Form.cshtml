@@ -7,19 +7,34 @@
 
 <body>
     <container-sm>
+        <div class="text-center">
+            <h1>Book lokale</h1>
+            <p>Du kan booke lokalet mellem 7:00-17:00</p>
+        </div>
+
         <div class="card shadow-sm">
             <div class="card-body text-center">
     <form method="post">
         <div class="form-group">
             <label for="inputDateTime"></label>
-            <input type="datetime" asp-for="Booking.StartDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time">
+                        <input type="datetime-local" asp-for="Booking.StartDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime-local" asp-for="Booking.EndDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
         </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
+                        <select asp-for="Lokale" class="form-control">
+                            <option value="">Select a room</option>
+                            <option value="1">Alpha</option>
+                            <option value="2">Beta</option>
+                            <option value="3">Charlie</option>
+                            <option value="4">Delta</option>
+                            <option value="5">Echo</option>
+                            <option value="6">Foxtrot</option>
+                        </select>
                 <label for="inputComment"></label>
                 <input type="text" asp-for="Booking.Comment" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment" value="">
-                <small id="commentHelp" class="form-text text-muted">Enter any comments or special requests for the staff here.</small>
+                <small id="commentHelp" class="form-text text-muted mt-5">Enter any comments or special requests for the staff here.  </small>
             </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
     </form>
     </<div>
     </div>
