@@ -54,8 +54,6 @@ namespace DSVBooking.Pages
                 if (tempBookDate == filterDate)
                 {
                     _activeBookings.Add(booking);
-                    Debug.WriteLine(booking.ID + " added to activebookings");
-
                 }
             }
         }
@@ -69,13 +67,10 @@ namespace DSVBooking.Pages
                     if (hour == booking.StartDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = true;
-                        Debug.WriteLine("BookChecker: true");
                     }
                     else if (hour == booking.EndDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = false;
-                        Debug.WriteLine("BookChecker: false");
-
                     }
                 }
             }
@@ -91,7 +86,6 @@ namespace DSVBooking.Pages
         {
             if (filterDate != DateOnly.FromDateTime(DateTime.Now.Date))
                 dateIsSet = true;
-            Debug.WriteLine(filterDate);
             Rooms = _rs.Filter(filterCap, filterWB, filterSB);
             Vacancy();
         }
