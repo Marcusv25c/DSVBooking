@@ -75,13 +75,16 @@ namespace DSVBooking.Pages
 
         public IActionResult OnPostFilter()
         {
+            Debug.WriteLine("fefe");
             Rooms = _rs.Filter(filterCap, filterWB, filterSB);
             return Page();
         }
 
 
-        public IActionResult OnPost(int idroom)
-        {            
+        public IActionResult OnPostBook(int idroom)
+        {
+            Debug.WriteLine("hej");
+
             Room bound = _rs.Get(idroom);
 
             return RedirectToPage("/Form", new { roomname = bound.ID });

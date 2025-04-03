@@ -27,7 +27,7 @@
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
             {
-            <form method="post">
+            <form method="post" asp-page-handler="Book" name="Book" id="Book">
                 <div class="col">
                     <div class="card shadow-sm mt-3">
                         <div class="card-body text-start">
