@@ -8,18 +8,15 @@ namespace DSVBooking.Pages
 {
     public class FormModel : PageModel
     {
-        private readonly MovingService _ms;
-        private MovingService _moveingService;
         private BookService _bookService;
         [BindProperty]
         public Booking Booking { get; set; }
         public int Lokale { get; set; }
 
-        public FormModel(BookService bs,MovingService _ms)
+        public FormModel(BookService bs)
         {
             Booking = new Booking();
             _bookService = bs;
-            _moveingService = _ms;
         }
 
         public void OnGet()

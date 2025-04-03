@@ -11,14 +11,10 @@ namespace DSVBooking.Pages
     {
         private readonly RoomService _rs;
         private readonly BookService _bs;
-        private readonly MovingService _ms;
         [BindProperty]
         public List<Room> Rooms { get; set; }
 
-        private MovingService _movingService;
-
         public List<Booking> Bookings { get; set; }
-        public MovingBetween Moveing { get; set; }
         List<Booking> _activeBookings = new List<Booking>();
         
         bool _isBooked = false;
@@ -33,16 +29,13 @@ namespace DSVBooking.Pages
 
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs, MovingService _ms)
+        public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs)
         {
             _logger = logger;
             Rooms = rs.GetAll();
             _rs = rs;
             Bookings = bs.GetAll();
             _bs = bs;
-            Moveing = new MovingBetween();      
-            _movingService = _ms;
-            Debug.WriteLine("INDEXMODEL");
         }
 
         public void Vacancy()
@@ -77,37 +70,19 @@ namespace DSVBooking.Pages
         
         public void OnGet()
         {
-            
-            //filter 03/04
-           Rooms = _rs.Filter(filterCap, filterWB, filterSB);
-            Debug.WriteLine("test filter" + filterCap + filterWB + filterSB);
-            foreach (Room room in Rooms)
-            {
-                Debug.WriteLine(room.Name);
-                    }
             Vacancy();
         }
 
+        public IActionResult OnPostFilter()
+        {
+            Rooms = _rs.Filter(filterCap, filterWB, filterSB);
+            return Page();
+        }
 
-        //public void OnPostFilter(int cap, bool wb, bool sb)
-        //{
-        //    List<Room> filterRooms = new List<Room>();
-        //    Rooms = _rs.Filter(cap, wb, sb);
-        //    Debug.WriteLine("test filter" + cap + wb + sb);
-        //}
 
         public IActionResult OnPost(int idroom)
-        {
-            Debug.WriteLine("test" + idroom);
-            
-            
+        {            
             Room bound = _rs.Get(idroom);
-
-
-
-
-
-
 
             return RedirectToPage("/Form", new { roomname = bound.ID });
         }

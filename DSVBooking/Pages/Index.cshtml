@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -6,20 +6,19 @@
 <link href="~/css/site.css" rel="stylesheet" />
 
 <!--Filtrering-->
-<header>
-<body class="container-fluid bg-light">
-    <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
-    <form method="get">
-        <label for="filterWB" class="control-label">Whiteboard: </label>
+<header class="container-fluid bg-light">
 
-            <input class="me-4" asp-for="@Model.filterWB" type="checkbox" name="@Model.filterWB" value="true">
+    <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
+    <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">      
+
+        <label for="filterWB" class="control-label">Whiteboard: </label>
+            <input class="me-4" asp-for="filterWB" type="checkbox" id="whiteboard" name="filterWB" value="true">
         <label for="filterSB" class="control-label">Smartboard: </label>
-            <input class="me-4" asp-for="@Model.filterSB" type="checkbox" id="smartboard" name="@Model.filterSB" value="true">
+            <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
-            <input class="" asp-for="@Model.filterCap" type="number" id="capacity" name="@Model.filterCap" value="0" />
-        <input type="submit" class="btn btn-primary" value="Filtrér">
+            <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="0" /> 
+        <button type="submit" class="btn btn-primary" >Filtrér</button>
     </form>
-</body>
 
 </header>
 
@@ -28,15 +27,14 @@
         <div class="row row-cols-3">
             @foreach (var room in Model.Rooms)
             {
-         
-                 <form method="post">
+            <form method="post">
                 <div class="col">
                     <div class="card shadow-sm mt-3">
                         <div class="card-body text-start">
-                          
+
                             <h5 class="card-title text-center"><b>@room.Name</b></h5>
                             <img src="Media/@room.ImgPath" class="card-img-top" alt="Room Image">
-                            @*  <p class="card-text"><i>Max @room.Capacity personer.</i></p> *@
+                             <p class="card-text"><i>Max @room.Capacity personer.</i></p>
                             <div class="row">
                                 <div class="col mt-1">
                                     <p class="card-text">Max: @room.Capacity personer </p>
@@ -47,9 +45,9 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-end gap-3 mt-2">
-                                        <input type="hidden" value="@room.ID" name="idroom"/>
-                                        <button class="btn btn-outline-primary" title="Book" @* onclick="@Model.BookRoom(room.ID)" *@>
-                                        Book room
+                                        <input type="hidden" value="@room.ID" name="idroom" />
+                                        <button class="btn btn-outline-primary" title="Book">
+                                            Book room
                                         </button>
                                     </div>
                                 </div>
@@ -66,10 +64,11 @@
                         </div>
                     </div>
                 </div>
-                </form>
+            </form>
+                
 
             }
         </div>
         </div>
 
-    </div>
+    

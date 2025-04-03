@@ -13,8 +13,6 @@ namespace DSVBooking
             builder.Services.AddSingleton<IBookRepository, BookCollectionRepository>();
             builder.Services.AddSingleton<BookService>(); // Add services to the container.
             builder.Services.AddRazorPages();
-            builder.Services.AddSingleton<IMovingRepository, MovingCollectionRepository>();
-            builder.Services.AddSingleton<MovingService>();
 
             var app = builder.Build();
 
@@ -32,7 +30,7 @@ namespace DSVBooking
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.MapControllers();
             app.MapRazorPages();
 
             app.Run();
