@@ -4,6 +4,8 @@ using DSVBooking.Services;
 using DSVBooking.Repository;
 using DSVBooking.Model;
 using System.Diagnostics;
+using System.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DSVBooking.Pages
 {
@@ -24,8 +26,11 @@ namespace DSVBooking.Pages
         public bool filterWB { get; set; }
         [BindProperty]
         public bool filterSB { get; set; }
+        [BindProperty]
+        public DateTime filterDate { get; set; }
 
-        private DateTime setDate = DateTime.Now;
+        public DateTime setDate = DateTime.Now.Date;
+
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -87,7 +92,7 @@ namespace DSVBooking.Pages
 
             Room bound = _rs.Get(idroom);
 
-            return RedirectToPage("/Form", new { roomname = bound.ID });
+            return RedirectToPage("/Form", new { roomname = bound.ID,dateroom = setDate });
         }
     }
 }
