@@ -42,6 +42,7 @@ namespace DSVBooking.Pages
             _bs = bs;
             Moveing = new MovingBetween();      
             _movingService = _ms;
+            Debug.WriteLine("INDEXMODEL");
         }
 
         public void Vacancy()
@@ -76,20 +77,24 @@ namespace DSVBooking.Pages
         
         public void OnGet()
         {
-            Vacancy();
+            
             //filter 03/04
            Rooms = _rs.Filter(filterCap, filterWB, filterSB);
             Debug.WriteLine("test filter" + filterCap + filterWB + filterSB);
-
+            foreach (Room room in Rooms)
+            {
+                Debug.WriteLine(room.Name);
+                    }
+            Vacancy();
         }
 
 
-        public void OnPostFilter(int cap, bool wb, bool sb)
-        {
-            List<Room> filterRooms = new List<Room>();
-            Rooms = _rs.Filter(cap, wb, sb);
-            Debug.WriteLine("test filter" + cap + wb + sb);
-        }
+        //public void OnPostFilter(int cap, bool wb, bool sb)
+        //{
+        //    List<Room> filterRooms = new List<Room>();
+        //    Rooms = _rs.Filter(cap, wb, sb);
+        //    Debug.WriteLine("test filter" + cap + wb + sb);
+        //}
 
         public IActionResult OnPost(int idroom)
         {

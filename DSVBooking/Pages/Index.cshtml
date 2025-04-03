@@ -12,11 +12,11 @@
     <form method="get">
         <label for="filterWB" class="control-label">Whiteboard: </label>
 
-        <input class="me-4" asp-for="filterWB" type="checkbox" name="filterWB" value="true">
+            <input class="me-4" asp-for="@Model.filterWB" type="checkbox" name="@Model.filterWB" value="true">
         <label for="filterSB" class="control-label">Smartboard: </label>
-        <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
+            <input class="me-4" asp-for="@Model.filterSB" type="checkbox" id="smartboard" name="@Model.filterSB" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
-            <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="@Model.filterCap" />
+            <input class="" asp-for="@Model.filterCap" type="number" id="capacity" name="@Model.filterCap" value="0" />
         <input type="submit" class="btn btn-primary" value="Filtrér">
     </form>
 </body>
