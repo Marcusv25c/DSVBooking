@@ -100,7 +100,7 @@ namespace DSVBooking.Pages
 
 
 
-            return RedirectToPage("/Form", new { roomname = bound.Name });
+            return RedirectToPage("/Form", new { roomname = bound.ID });
         }
     }
 }
