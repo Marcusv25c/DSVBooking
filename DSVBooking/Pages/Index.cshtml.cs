@@ -102,8 +102,9 @@ namespace DSVBooking.Pages
             Debug.WriteLine("hej");
 
             Room bound = _rs.Get(idroom);
-
-            return RedirectToPage("/Form", new { roomname = bound.ID,dateroom = filterDate });
+            DateOnly date = filterDate;
+            Debug.WriteLine("onPostBook " + date);
+            return RedirectToPage("/Form", new { roomname = bound.ID, date });
         }
     }
 }

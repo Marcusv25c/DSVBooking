@@ -17,8 +17,8 @@
     <form method="post">
         <div class="form-group">
             <label for="inputDateTime"></label>
-                        <input type="datetime-local" asp-for="Booking.StartDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
-                        <input type="datetime-local" asp-for="Booking.EndDateTime" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
+                        <input type="datetime-local" asp-for="Booking.StartDateTime" id="StartDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime-local" asp-for="Booking.EndDateTime" id="EndDateTime" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
         </div>
             <div class="form-group mt-2">
                         <select asp-for="Booking.RoomID" id="Lokale">
@@ -42,6 +42,8 @@
     <script> 
         var rooms=document.getElementById("Lokale");
            rooms.value=getQueryParameter("roomname");
+           var date=documant.getElementById("StartDateTime");
+           date.value=getQueryParameter("dateroom");
 
 
 
@@ -52,6 +54,7 @@
           return urlParams.get(name);
 
         }
+        
 
 
     </script>
