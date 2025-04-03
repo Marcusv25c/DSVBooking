@@ -1,4 +1,5 @@
 ﻿@page
+@using DSVBooking.Model
 @model DSVBooking.Pages.BookingEditorModel
 @{
 }
@@ -6,6 +7,7 @@
      <div class="container row row-cols-3">
 @foreach (var booking in Model.Bookings)
 {
+    var room = Model.Rooms.FirstOrDefault(r => r.ID == booking.RoomID); // Assuming Model.Rooms contains the list of rooms
     <div class="col">
         <div class="card shadow-sm">
             <div class="card-body text-center">
@@ -14,6 +16,7 @@
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
                 <p class="card-text">@booking.StartDateTime.ToString("HH-mm") - @booking.EndDateTime.ToString("HH-mm")</p>
                 <p class="card-text">@booking.Comment</p>
+                <img src="Media/@room?.ImgPath" class="card-img-top" alt="Room Image"> <!-- Added null check for room -->
                 <div class="d-flex justify-content-end gap-3">
                     <!--button to open module for editing booking-->
                             <button class="btn btn-outline-primary EditBTN" data-bs-toggle="modal" data-bs-target="#editBookingModal"
@@ -21,6 +24,7 @@
                                     data-booking-start="@booking.StartDateTime"
                                     data-booking-end="@booking.EndDateTime"
                                     data-booking-comment="@booking.Comment">
+                                
                                 <i class="bi bi-pencil"></i> Edit
                             </button>
                             <!--button for deleting booking-->
