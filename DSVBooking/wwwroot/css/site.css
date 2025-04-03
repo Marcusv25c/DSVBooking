@@ -1,3 +1,8 @@
+p {
+    line-height: 0.7;
+}
+
+
 html {
   font-size: 14px;
 }
@@ -40,4 +45,6 @@ body {
         background-color: #cc0000;
         border-color: #192862;
     }
+
+}
 

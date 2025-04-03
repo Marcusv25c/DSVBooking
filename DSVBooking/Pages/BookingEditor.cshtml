@@ -3,6 +3,7 @@
 @model DSVBooking.Pages.BookingEditorModel
 @{
 }
+<link href="~/css/form.css" rel="stylesheet" />
 <body>
      <div class="container row row-cols-3">
 @foreach (var booking in Model.Bookings)
@@ -12,7 +13,6 @@
         <div class="card shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-text"><b>@room?.Name</b></h5> <!--Temp. for lettere testing af roomID-->
-                
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
                 <p class="card-text">@booking.StartDateTime.ToString("HH:mm") - @booking.EndDateTime.ToString("HH:mm")</p>
                 <p class="card-text">@booking.Comment</p>
@@ -25,9 +25,7 @@
                                     data-booking-id="@booking.ID"
                                     data-booking-start="@booking.StartDateTime"
                                     data-booking-end="@booking.EndDateTime"
-                                    data-booking-comment="@booking.Comment">
-                                    
-                                
+                                    data-booking-comment="@booking.Comment">                                
                                 <i class="bi bi-pencil"></i> Edit
                             </button>
                             <!--button for deleting booking-->
