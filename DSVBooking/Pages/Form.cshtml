@@ -31,7 +31,7 @@
                             <option value="6">Foxtrot</option>
                         </select>
                 <label for="inputComment"></label>
-                <input type="text" asp-for="Booking.Comment" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment" value="">
+                <input type="text" asp-for="Booking.Comment" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment" >
                 <small id="commentHelp" class="form-text text-muted mt-5">Enter any comments or special requests for the staff here.  </small>
             </div>
         <button type="submit" class="btn btn-primary mt-5">Submit</button>
@@ -41,19 +41,30 @@
     </container-sm>
     <script> 
         var rooms=document.getElementById("Lokale");
-           rooms.value=getQueryParameter("roomname");
-           var date=documant.getElementById("StartDateTime");
-           date.value=getQueryParameter("dateroom");
+            rooms.value=getQueryParameter("roomname");
+        var date = document.getElementById("StartDateTime");
+           Date.Value = getQueryParameter("roomdate");
 
+        var roomDateValue = getQueryParameter("roomdate");
+            console.log("d");
+        if (date && roomDateValue) {
+            let parsedDate = new Date(roomDateValue);
+        parsedDate.setMinutes(parsedDate.getMinutes() - parsedDate.getTimezoneOffset());
+
+        date.value = parsedDate.toISOString().slice(0, 16);
+        }
+                 
 
 
      function getQueryParameter(name) {
 
           const urlParams = new URLSearchParams(window.location.search);
-
+             
+           
           return urlParams.get(name);
 
-        }
+      }
+         
         
 
 
