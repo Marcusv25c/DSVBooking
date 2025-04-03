@@ -4,6 +4,8 @@ using DSVBooking.Services;
 using DSVBooking.Repository;
 using DSVBooking.Model;
 using System.Diagnostics;
+using System.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace DSVBooking.Pages
 {
@@ -24,13 +26,19 @@ namespace DSVBooking.Pages
         public bool filterWB { get; set; }
         [BindProperty]
         public bool filterSB { get; set; }
+        [BindProperty]
+        public DateOnly filterDate { get; set; }
 
-        private DateTime setDate = DateTime.Now;
+        bool dateIsSet = false;
+
 
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger, RoomService rs, BookService bs)
         {
+            if(!dateIsSet)
+                filterDate = DateOnly.FromDateTime(DateTime.Now.Date);
+
             _logger = logger;
             Rooms = rs.GetAll();
             _rs = rs;
@@ -42,9 +50,12 @@ namespace DSVBooking.Pages
         {
             foreach (Booking booking in Bookings)
             {
-                if (booking.StartDateTime.Date == setDate.Date)
+                DateOnly tempBookDate = DateOnly.FromDateTime(booking.StartDateTime);
+                if (tempBookDate == filterDate)
                 {
                     _activeBookings.Add(booking);
+                    Debug.WriteLine(booking.ID + " added to activebookings");
+
                 }
             }
         }
@@ -58,10 +69,13 @@ namespace DSVBooking.Pages
                     if (hour == booking.StartDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = true;
+                        Debug.WriteLine("BookChecker: true");
                     }
                     else if (hour == booking.EndDateTime.Hour && roomID == booking.RoomID)
                     {
                         _isBooked = false;
+                        Debug.WriteLine("BookChecker: false");
+
                     }
                 }
             }
@@ -73,11 +87,13 @@ namespace DSVBooking.Pages
             Vacancy();
         }
 
-        public IActionResult OnPostFilter()
+        public void OnPostFilter()
         {
-            Debug.WriteLine("fefe");
+            if (filterDate != DateOnly.FromDateTime(DateTime.Now.Date))
+                dateIsSet = true;
+            Debug.WriteLine(filterDate);
             Rooms = _rs.Filter(filterCap, filterWB, filterSB);
-            return Page();
+            Vacancy();
         }
 
 
@@ -87,7 +103,7 @@ namespace DSVBooking.Pages
 
             Room bound = _rs.Get(idroom);
 
-            return RedirectToPage("/Form", new { roomname = bound.ID });
+            return RedirectToPage("/Form", new { roomname = bound.ID,dateroom = filterDate });
         }
     }
 }
