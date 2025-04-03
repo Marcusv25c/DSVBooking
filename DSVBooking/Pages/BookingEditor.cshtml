@@ -11,15 +11,15 @@
     <div class="col">
         <div class="card shadow-sm">
             <div class="card-body text-center">
-                <h5 class="card-title">Booking nr: @booking.ID</h5>
-                <p class="card-text">@room?.Name</p> <!--Temp. for lettere testing af roomID-->
+                <h5 class="card-text"><b>@room?.Name</b></h5> <!--Temp. for lettere testing af roomID-->
+                <p class="card-title">Booking ID: @booking.ID</p>
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
-                <p class="card-text">@booking.StartDateTime.ToString("HH-mm") - @booking.EndDateTime.ToString("HH-mm")</p>
+                <p class="card-text">@booking.StartDateTime.ToString("HH:mm") - @booking.EndDateTime.ToString("HH:mm")</p>
                 <p class="card-text">@booking.Comment</p>
                 <img src="Media/@room?.ImgPath" class="card-img-top" alt="Room Image"> <!-- Added null check for room -->
                 <div class="d-flex justify-content-end gap-3">
                     <!--button to open module for editing booking-->
-                            <button class="btn btn-outline-primary EditBTN" data-bs-toggle="modal" data-bs-target="#editBookingModal"
+                            <button class="btn btn-outline-primary EditBTN mt-1" data-bs-toggle="modal" data-bs-target="#editBookingModal"
                                     data-booking-id="@booking.ID"
                                     data-booking-start="@booking.StartDateTime"
                                     data-booking-end="@booking.EndDateTime"
@@ -30,7 +30,7 @@
                             <!--button for deleting booking-->
                             <form method="post" asp-page-handler="DeleteBooking" class="d-inline">
                                 <input type="hidden" name="bookingId" value="@booking.ID" />
-                                <button type="submit" class="btn btn-delete">
+                                <button type="submit" class="btn btn-delete mt-1">
                                     <i class="bi bi-trash"></i> Delete
                                 </button>
                             </form>
