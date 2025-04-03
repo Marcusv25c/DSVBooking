@@ -9,16 +9,18 @@
 <header>
 <body class="container-fluid bg-light">
     <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
-    <form method="filter">
+    <form method="get">
         <label for="filterWB" class="control-label">Whiteboard: </label>
-        <input class="me-4" type="checkbox" name="filterWB" value="true">
+
+        <input class="me-4" asp-for="filterWB" type="checkbox" name="filterWB" value="true">
         <label for="filterSB" class="control-label">Smartboard: </label>
-        <input class="me-4" type="checkbox" id="smartboard" name="filterSB" value="true">
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
-        <input class="" type="number" id="capacity" name="filterCap" />
+            <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="@Model.filterCap" />
         <input type="submit" class="btn btn-primary" value="Filtrér">
     </form>
 </body>
+
 </header>
 
     <div class="container">
@@ -57,7 +59,7 @@
                             @for (int i = 7; i < 17; i++)
                             {
                                 var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
-                                <div class="col" style="@bgColor">
+                                <div class="col text-center" style="@bgColor">
                                     <p>@i:00</p>
                                 </div>
                             }

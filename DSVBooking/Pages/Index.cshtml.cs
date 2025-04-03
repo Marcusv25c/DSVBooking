@@ -23,11 +23,11 @@ namespace DSVBooking.Pages
         
         bool _isBooked = false;
         [BindProperty]
-        int filterCap { get; set; }
+        public int filterCap { get; set; }
         [BindProperty]
-        bool filterWB { get; set; }
+        public bool filterWB { get; set; }
         [BindProperty]
-        bool filterSB { get; set; }
+        public bool filterSB { get; set; }
 
         private DateTime setDate = DateTime.Now;
 
@@ -77,6 +77,10 @@ namespace DSVBooking.Pages
         public void OnGet()
         {
             Vacancy();
+            //filter 03/04
+           Rooms = _rs.Filter(filterCap, filterWB, filterSB);
+            Debug.WriteLine("test filter" + filterCap + filterWB + filterSB);
+
         }
 
 
@@ -84,7 +88,7 @@ namespace DSVBooking.Pages
         {
             List<Room> filterRooms = new List<Room>();
             Rooms = _rs.Filter(cap, wb, sb);
-            Debug.WriteLine("test filter");
+            Debug.WriteLine("test filter" + cap + wb + sb);
         }
 
         public IActionResult OnPost(int idroom)

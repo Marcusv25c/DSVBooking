@@ -31,7 +31,6 @@
             public List<Room> Filter(int cap, bool whiteb, bool smartb)
             {
                 List<Room> filterRooms = new List<Room>();
-                List<Booking> filterBookings = new List<Booking>();
 
                 if (smartb == true && whiteb == true)
                 {
@@ -76,9 +75,7 @@
                         }
                     }
                 }
-                //foreach (Room room in filterRooms)
-                 //   Debug.WriteLine("test " + room.Name);
-
+            Debug.WriteLine("Testing the fucking filter" + whiteb + smartb + cap);
                 return filterRooms;
             }
 
