@@ -12,7 +12,7 @@
         <div class="card shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-title">Booking nr: @booking.ID</h5>
-                <p class="card-text">I rum nr. @booking.RoomID</p> <!--Temp. for lettere testing af roomID-->
+                <p class="card-text">@room?.Name</p> <!--Temp. for lettere testing af roomID-->
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
                 <p class="card-text">@booking.StartDateTime.ToString("HH-mm") - @booking.EndDateTime.ToString("HH-mm")</p>
                 <p class="card-text">@booking.Comment</p>
