@@ -10,7 +10,7 @@
 
     <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
     <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">
-        <input class="me-4" type="datetime" asp-for="filterDate" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="86400">
+        <input class="me-4" type="date" asp-for="filterDate" id="inputForm" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time">
 
         <label for="filterWB" class="control-label">Whiteboard: </label>
             <input class="me-4" asp-for="filterWB" type="checkbox" id="whiteboard" name="filterWB" value="true">
