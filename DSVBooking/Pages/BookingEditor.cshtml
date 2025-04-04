@@ -19,7 +19,8 @@
                 <h5 class="card-text"><b>@room?.Name</b></h5> <!--Temp. for lettere testing af roomID-->
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
                 <p class="card-text">@booking.StartDateTime.ToString("HH:mm") - @booking.EndDateTime.ToString("HH:mm")</p>
-                <p class="card-text">@booking.Comment</p>
+                <p class="card-text text-start">Kommentar:</p>
+                        <p class="card-text note-text" style="background-color:#f8f9fa ; padding:10px ; border: 1px solid"><i>@booking.Comment</i></p>
                 <img src="Media/@room?.ImgPath" class="card-img-top" alt="Room Image"> <!-- Added null check for room -->
                 
                 <div class="d-flex justify-content-end gap-3">
