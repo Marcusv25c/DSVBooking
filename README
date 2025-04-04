@@ -1,0 +1,69 @@
+README
+
+Opgavebeskrivelse 
+
+DSV og intern booking
+
+DSV er en af verdens førende leverandører af transport- og logistikløsninger, og virksomheden har kontorer over hele verden. For at optimere brugen af virksomhedens mødelokaler har DSV brug for et system, der kan administrere og booke mødelokaler internt.
+
+I DSV's hovedkontor skal der oprettes en liste over de tilgængelige mødelokaler, såsom "Mødelokale A", "Mødelokale B", "Mødelokale C" osv. For hvert mødelokale skal der vises relevant information, herunder navnet på lokalet (f.eks. "Mødelokale A"), kapaciteten, som angiver hvor mange personer lokalet kan rumme, samt hvilket udstyr der er tilgængeligt i lokalet, f.eks. projektor eller whiteboard. Desuden skal mødelokalerne være markeret med deres tilgængelighed, så det er muligt at se, om et mødelokale er ledigt eller optaget på et givent tidspunkt.
+
+
+Opgave
+I skal som gruppe udarbejde en Business Model Canvas for DSV og beskrive, hvordan mødelokale-bookingsystemet bidrager til DSV’s interne drift.
+
+I skal også lave en omverdensmodel der viser DSV’s afhængige og uafhængige omverden. 
+
+Endvidere skal I lave en SWOT-analyse, som hjælper med at identificere DSV’s interne styrker og svagheder samt de eksterne muligheder og trusler i forbindelse med implementeringen af et internt mødelokale-bookingsystem.
+
+Samtidig skal i udvikle et internt bookingsystem for DSV’s mødelokaler. Systemet skal gøre det muligt for medarbejderne at se, oprette, redigere og slette bookinger for de mødelokaler, der er tilgængelige på virksomhedens kontorer.
+
+I skal implementere følgende user stories (funktionelle krav):
+
+
+Som medarbejder ønsker jeg at kunne se en liste over ledige mødelokaler, så jeg nemt kan vælge et, der passer til mit møde.
+
+Acceptkriterier:
+
+Der vises en oversigt med alle mødelokaler, deres kapacitet og tilgængelighed.
+Mødelokalerne vises som enten "ledig" eller "optaget" for de relevante tidsrum.
+Jeg kan filtrere mødelokalerne efter kapacitet eller udstyr (f.eks. projektor eller whiteboard).
+ 
+
+ 
+
+ 
+
+Som medarbejder ønsker jeg at kunne booke et mødelokale, så jeg kan sikre mig et lokale til mit møde.
+
+Acceptkriterier:
+
+Jeg kan vælge et mødelokale fra listen og vælge dato og tidspunkt for bookingen.
+Jeg kan tilføje en kommentar til bookingen (f.eks. formål med mødet).
+Jeg kan se en bekræftelse på, at min booking er oprettet korrekt.
+
+Som medarbejder ønsker jeg at kunne opdatere en eksisterende booking, hvis jeg får brug for at ændre tidspunktet eller mødelokalet.
+
+Acceptkriterier:
+
+Jeg kan finde og vælge en eksisterende booking.
+Jeg kan ændre tidspunktet eller vælge et andet mødelokale.
+Jeg kan gemme ændringerne, og de bliver opdateret i systemet.
+
+Som medarbejder ønsker jeg at kunne annullere en booking, hvis mødet ikke længere er nødvendigt, så andre kan bruge lokalet.
+
+Acceptkriterier:
+
+Jeg kan finde den booking, jeg ønsker at slette.
+Jeg kan slette bookingen, og den bliver fjernet fra systemet, så mødelokalet bliver tilgængeligt for andre.
+ 
+
+Øvrige krav
+Jeres løsning skal være indbydende og afspejle DSV i stil og farvevalg.
+
+
+Tekniske krav til løsningen
+I skal bruge Razor Pages, som grundlæggende teknologi
+I skal implementere jeres løsning ved hjælp af HTML, CSS og C#
+Der skal indgå objekter, lister og repositories i jeres løsning.
+Brug Bootstrap til at sikre et flot og brugervenligt design der kan vises på flere enheder.
