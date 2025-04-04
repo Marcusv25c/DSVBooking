@@ -42,7 +42,8 @@
         var rooms=document.getElementById("Lokale");
             rooms.value=getQueryParameter("roomname");
         var date = document.getElementById("StartDateTime");
-           Date.Value = getQueryParameter("roomdate");
+           date.Value = getQueryParameter("roomdate");
+        var endDate = document.getElementById("EndDateTime");
 
         var roomDateValue = getQueryParameter("roomdate");
             console.log("d");
@@ -50,11 +51,12 @@
             let parsedDate = new Date(roomDateValue);
         parsedDate.setMinutes(parsedDate.getMinutes() - parsedDate.getTimezoneOffset());
 
-        date.value = parsedDate.toISOString().slice(0, 16);
+          var test = addHours(parsedDate,7)
+
+           date.value = test.toISOString().slice(0, 16);
+           endDate.value= date.value;
         }
                  
-
-
      function getQueryParameter(name) {
 
           const urlParams = new URLSearchParams(window.location.search);
@@ -63,6 +65,12 @@
           return urlParams.get(name);
 
       }
+
+      function addHours(date, hours) {
+          const hoursToAdd = hours * 60 * 60 * 1000;
+          date.setTime(date.getTime() + hoursToAdd);
+          return date;
+        }
          
         
 
