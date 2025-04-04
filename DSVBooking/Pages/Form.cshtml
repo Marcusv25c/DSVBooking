@@ -14,12 +14,15 @@
         <div class="card shadow-sm">
             <div class="card-body text-center">
     <form method="post">
-        <div class="form-group">
-            <label for="inputDateTime"></label>
+        <div class="form-group container-fluid">
+            <label for="inputDateTime">Startid: </label>
                         <input type="datetime-local" asp-for="Booking.StartDateTime" id="StartDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <label for="inputDateTime">Sluttid: </label>
                         <input type="datetime-local" asp-for="Booking.EndDateTime" id="EndDateTime" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
         </div>
-            <div class="form-group mt-2">
+        <div class="mt-2">
+        <label for="Lokale">Skift Lokale: </label>
+            <div class="form-group mt-2 d-inline">
                         <select asp-for="Booking.RoomID" id="Lokale">
                             <option value="0">Select a room</option>
                             <option value="1">Alpha</option>
@@ -29,9 +32,12 @@
                             <option value="5">Echo</option>
                             <option value="6">Foxtrot</option>
                         </select>
-                <label for="inputComment"></label>
+                        </div>
+                    </div>
+                        <div class="form-group mt-2">
+                <label for="inputComment">Skriv kommentar her: </label>
                 <input type="text" asp-for="Booking.Comment" id="inputForm" aria-describedby="textHelp" placeholder="Enter a comment" >
-                <small id="commentHelp" class="form-text text-muted mt-5">Enter any comments or special requests for the staff here.  </small>
+
             </div>
         <button type="submit" class="btn btn-primary mt-5">Submit</button>
     </form>
