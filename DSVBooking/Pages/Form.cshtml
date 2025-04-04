@@ -46,7 +46,7 @@
         var endDate = document.getElementById("EndDateTime");
 
         var roomDateValue = getQueryParameter("roomdate");
-            console.log("d");
+            
         if (date && roomDateValue) {
             let parsedDate = new Date(roomDateValue);
         parsedDate.setMinutes(parsedDate.getMinutes() - parsedDate.getTimezoneOffset());

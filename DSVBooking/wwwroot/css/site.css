@@ -53,3 +53,6 @@ body {
     height:20%;
 }
 
+.card-img-top {
+   aspect-ratio: 16 / 9;
+}
