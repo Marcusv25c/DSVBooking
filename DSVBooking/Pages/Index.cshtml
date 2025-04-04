@@ -26,7 +26,7 @@
 
     <div class="container">
     <!--ROOM CARDS-->
-        <div class="row row-cols-3">
+        <div class="row row-cols-md-2 row-cols-lg-3">
             @foreach (var room in Model.Rooms)
             {
             <form method="post" asp-page-handler="Book" name="Book" id="Book">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class=" row row-cols-5">
+                        <div class=" row row-cols-auto row-cols-5">
                             @for (int i = 7; i < 17; i++)
                             {
                                 var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
