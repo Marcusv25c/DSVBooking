@@ -37,7 +37,7 @@ namespace DSVBooking.Pages
         }
 
         //method for editing bookings
-        public IActionResult OnPostEditBooking(int bookingId, DateTime startDateTime, DateTime endDateTime, string comment)
+        public IActionResult OnPostEditBooking(int bookingId, DateTime startDateTime, DateTime endDateTime, string comment, int roomId)
         {
             // Find the booking by ID
             Debug.WriteLine(bookingId);
@@ -49,6 +49,7 @@ namespace DSVBooking.Pages
                 bookingToUpdate.StartDateTime = startDateTime;
                 bookingToUpdate.EndDateTime = endDateTime;
                 bookingToUpdate.Comment = comment;
+                bookingToUpdate.RoomID = roomId;
             }
 
             // Save changes to the repository or perform other necessary actions

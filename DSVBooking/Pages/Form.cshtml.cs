@@ -21,7 +21,7 @@ namespace DSVBooking.Pages
 
         public void OnGet()
         {
-
+            Booking.EndDateTime = Booking.StartDateTime.Date;
         }
 
         public IActionResult OnPost()

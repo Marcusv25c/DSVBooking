@@ -5,7 +5,11 @@
 }
 <link href="~/css/form.css" rel="stylesheet" />
 <body>
-     <div class="container row row-cols-3">
+     
+        <div class="text-center">
+            <h1>Redigér Booking</h1>
+        </div>
+    <div class="container row row-cols-3">
 @foreach (var booking in Model.Bookings)
 {
     var room = Model.Rooms.FirstOrDefault(r => r.ID == booking.RoomID); // Assuming Model.Rooms contains the list of rooms
@@ -66,8 +70,16 @@
                             </div>
 
                             <div class="mb-3">
+                                <p class="card-text">
+                                    <i>Booking Comment:</i>
+                                </p>
                                 <label for="Comment" class="form-label">Comment</label>
                                 <textarea class="form-control" id="Comment" name="Comment" rows="3"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Change the Room</label>
+                                <textarea class="form-control" id="Id" name="RoomID" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
