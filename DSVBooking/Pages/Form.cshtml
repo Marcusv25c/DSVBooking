@@ -50,11 +50,13 @@
         if (date && roomDateValue) {
             let parsedDate = new Date(roomDateValue);
         parsedDate.setMinutes(parsedDate.getMinutes() - parsedDate.getTimezoneOffset());
+         const d = new Date();
+        let hour = d.getHours();
+             var curent = addHours(parsedDate,hour)
 
-          var test = addHours(parsedDate,7)
-
-           date.value = test.toISOString().slice(0, 16);
-           endDate.value= date.value;
+              date.value = curent.toISOString().slice(0, 16);
+              var aftercurent = addHours(curent,1)
+                 endDate.value= aftercurent.toISOString().slice(0, 16);
         }
                  
      function getQueryParameter(name) {
