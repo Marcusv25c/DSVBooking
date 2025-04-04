@@ -86,8 +86,8 @@
                 _rooms.Add(new Room("Beta", 60, true, true, "conference2.jpg"));
                 _rooms.Add(new Room("Charlie", 20, true, false, "conference3.jpg"));
                 _rooms.Add(new Room("Delta", 100, true, true, "conference4.jpg"));
-                _rooms.Add(new Room("Echo", 20, false, false, "conference3.jpg"));
-                _rooms.Add(new Room("Foxtrot", 50, false, true, "conference1.jpg"));
+                _rooms.Add(new Room("Echo", 20, false, false, "conference5.jpg"));
+                _rooms.Add(new Room("Foxtrot", 50, false, true, "conference6.jpg"));
             }
         }
     }
