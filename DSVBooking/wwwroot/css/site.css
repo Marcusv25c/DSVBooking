@@ -56,3 +56,6 @@ body {
 .card-img-top {
    aspect-ratio: 16 / 9;
 }
+.comment-text {
+    line-height: 1.5;
+}

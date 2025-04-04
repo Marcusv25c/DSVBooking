@@ -9,7 +9,7 @@
         <div class="text-center">
             <h1>Redigér Booking</h1>
         </div>
-    <div class="container row row-cols-3">
+    <div class="container row row-cols-auto row-cols-lg-3">
 @foreach (var booking in Model.Bookings)
 {
     var room = Model.Rooms.FirstOrDefault(r => r.ID == booking.RoomID); // Assuming Model.Rooms contains the list of rooms
@@ -20,7 +20,7 @@
                 <p class="card-text">@booking.StartDateTime.ToString("ddd") - @booking.StartDateTime.ToString("dd/MM-yyyy")</p>
                 <p class="card-text">@booking.StartDateTime.ToString("HH:mm") - @booking.EndDateTime.ToString("HH:mm")</p>
                 <p class="card-text text-start">Kommentar:</p>
-                        <p class="card-text note-text" style="background-color:#f8f9fa ; padding:10px ; border: 1px solid"><i>@booking.Comment</i></p>
+                        <p class="comment-text" style="background-color:#f8f9fa ; padding:10px ; border: 1px solid"><i>@booking.Comment</i></p>
                 <img src="Media/@room?.ImgPath" class="card-img-top" alt="Room Image"> <!-- Added null check for room -->
                 
                 <div class="d-flex justify-content-end gap-3">
